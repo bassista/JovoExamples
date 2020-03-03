@@ -1,6 +1,0 @@
-structure (CustomResponse) {
-  extends (JovoResponse) 
-
-// Todo:  Add Custom properties here.
- 
-}

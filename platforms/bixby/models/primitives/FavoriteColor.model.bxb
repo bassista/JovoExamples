@@ -1,8 +1,0 @@
-enum (FavoriteColor) {
-  symbol (Blue)
-  symbol (Yellow)
-  symbol (Red)
-  symbol (Pink)
-  symbol (Purple)
-  symbol (Turqouise)
-}

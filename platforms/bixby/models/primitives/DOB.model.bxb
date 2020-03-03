@@ -1,4 +1,0 @@
-
-structure (Dob) {
-  role-of (time.Date)
-}
