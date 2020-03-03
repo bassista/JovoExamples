@@ -1,0 +1,128 @@
+result-view {
+  match {
+    CustomResponse (response) {
+      from-output:  LaunchAction(action)
+    }
+  }
+
+  message {
+    if (exists(response._JOVO_SPEECH_)){
+     template("#{value (response._JOVO_SPEECH_)}")
+    }
+   
+  }
+  render {
+    layout {
+      section {
+        content {
+          // Collect some information
+               thumbnail-card {
+             image-object-fit (Contain)
+             on-click {
+               intent {
+                 goal:  MyNameIsAction
+                 value-set: CustomResponse{ $expr(response)}  
+               }
+             }
+                title-area {
+                  slot2 {
+                    single-line {
+                      text {
+                        value("Hello World")
+                        style(Title_XS)
+                        color (Amber)
+                      }
+                    }
+                  }
+                   slot3 {
+                    single-line {
+                      text {
+                        value("Collect the name of the user")
+                        style(Detail_M)
+                      }
+                    }
+                  }
+                }
+                image-url {
+                  template (images/logo-white.png)
+                
+                }
+              }
+
+           thumbnail-card {
+             image-object-fit (Contain)
+             on-click {
+               intent {
+                 goal:  CollectInfoAction
+                 value:  $expr(response)
+               }
+             }
+                title-area {
+                  slot2 {
+                    single-line {
+                      text {
+                        value("Collect some information")
+                        style(Title_XS)
+                        color (Amber)
+                      }
+                    }
+                  }
+                   slot3 {
+                    single-line {
+                      text {
+                        value("Get date of birth, and favorite color")
+                        style(Detail_M)
+                      }
+                    }
+                  }
+                }
+                image-url {
+                  template (images/logo-white.png)
+                
+                }
+              }
+
+                   
+          // Show my current location
+           thumbnail-card {
+              on-click {
+               intent {
+                 goal:  LocationAction
+                 value:  $expr(response)
+               }
+             }
+             image-object-fit (Contain)
+                title-area {
+                  slot2 {
+                    single-line {
+                      text {
+                        value("Show my current location")
+                        style(Title_XS)
+                        color (Amber)
+                      }
+                    }
+                  }
+                   slot3 {
+                    single-line {
+                      text {
+                        value("Show your current location on a map")
+                        style(Detail_M)
+                      }
+                    }
+                  }
+                }
+                image-url {
+                  template (images/logo-white.png)
+                }
+              }
+        }
+      }
+    }
+    
+  
+    
+  }
+
+  
+
+}

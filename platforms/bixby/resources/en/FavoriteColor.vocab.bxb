@@ -1,0 +1,13 @@
+vocab (FavoriteColor) {
+  "Blue" {"blue" "acid wash" "acid" }
+  "Purple" {"purple" "purple rain"}
+   "Turqouise" {"turqouise" "aqua"}
+   "Pink" {"pink" "miami"}
+   "Yellow" {"yellow" "gold" "pacman" "pac man"}
+  "Red" {"red" "maroon" "power suit"}
+  
+  
+  
+ 
+  
+}

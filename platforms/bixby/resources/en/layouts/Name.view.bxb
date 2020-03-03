@@ -1,0 +1,27 @@
+input-view {
+  match {
+    NameInput (fullName) { 
+      to-input: MyNameIsAction
+    }
+  }
+  message {
+    template ("What's your name?")
+  }
+  render {
+    form {
+      elements {
+        text-input {
+          id (fullName)
+          label (Your Name)
+          type (NameInput)
+          max-length (50)
+          value ("#{raw(fullName)}")
+        }
+      }
+      on-submit {
+        goal: NameInput
+        value: viv.core.FormElement(fullName)
+      }
+    }
+  }
+}

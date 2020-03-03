@@ -1,0 +1,33 @@
+action (MyNameIsAction) {
+  description (Collects a name from the user and returns a welcome message.)
+  type (Search)
+
+  collect {
+
+      input (_JOVO_PREV_RESPONSE_) {
+      type(CustomResponse)
+      min (Required)
+      max (One)
+      validate {
+        if(!exists(_JOVO_PREV_RESPONSE_)) {
+          replan {
+            intent {
+              goal:  LaunchAction
+            }
+          }
+        }
+      }
+    }
+
+    input (_JOVO_INPUT_name) {
+      type (NameInput)
+      min (Required) 
+      max (One)
+      plan-behavior (Never) // Don't use the session value
+    }
+
+ 
+  }
+  output (CustomResponse)
+}
+

@@ -1,0 +1,35 @@
+input-view {
+  match:  FavoriteColor(colors) {
+
+  }
+
+  message {
+    template (Please select your favorite color below)
+  }
+  render {
+    selection-of (colors) {
+      where-each (color) {
+       image-card {
+         title-area {
+           halign (Center)
+           slot2 {
+             single-line {
+               spacer
+             }
+           }
+         }
+         column-size (Two)
+         image-url {
+           template ("images/colors/#{value(color)}.png") 
+         }
+       }
+      }
+    }
+  }
+
+
+
+
+}
+
+
