@@ -1,0 +1,86 @@
+result-view {
+  match:  JovoResponse(response) {
+    from-output:  LocationAction(action)
+  }
+
+  message {
+    if(exists(response._JOVO_SPEECH_)) {
+      template ("#{value(response._JOVO_SPEECH_)}")
+    }
+  }
+
+    followup {
+    prompt {
+      dialog(Would you like to see the menu?)
+      on-confirm {
+        if (false) {
+          message(Alright)
+        }
+        else {
+          intent {
+            goal:  LaunchAction
+          }
+        }
+      }
+      on-deny {
+        message(Got it)
+      }
+    }
+
+
+  }
+
+
+  conversation-drivers {
+    conversation-driver {
+      template (Yes)
+    }
+    conversation-driver {
+      template (No)
+    }
+  }
+
+
+    render {
+
+    layout {
+      section {
+        content {
+          map-card {
+            aspect-ratio(One_One)
+           
+            title-area {
+              halign (Center)
+              slot2 {
+                paragraph("You are here")
+              }
+            }
+            markers {
+                 
+               marker {
+                  geo (response._JOVO_SESSION_DATA_.location.point)
+                  icon ("/images/jovo-logo.png")
+                  width (20)
+                  height (20)
+                  anchor-x (5)
+                  anchor-y (15)
+                  rotation (0)
+                }
+
+            }
+          }
+
+          title-area {
+            halign (Center)
+            slot2 {
+              
+              paragraph("Your location is #{value(response)}")
+            }
+          }
+
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,5 @@
+train (t-8lbwaziw7yk017fac0kbaebr1) {
+  utterance ("[g:NameInput:prompt] (Pete)[v:NameInput]")
+  plan (Y2BikCvISaxML8ovzUvRy8ovy48vSS0u0fNLzE31zCsoLSEozwiEDAw8QMwExEA2AA==)
+  last-modified (1583264499514)
+}

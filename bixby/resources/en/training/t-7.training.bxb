@@ -1,0 +1,5 @@
+train (t-7g5q9m894osc44x6f6uof2qll) {
+  utterance ("[g:NameInput:prompt] my name is (paul)[v:NameInput]")
+  plan (Y2BikCvISaxML8ovzUvRy8ovy48vSS0u0fNLzE31zCsoLSEozwiEDAw8QMwExEA2AA==)
+  last-modified (1583266901852)
+}

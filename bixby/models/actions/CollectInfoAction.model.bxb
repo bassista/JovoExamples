@@ -1,0 +1,52 @@
+action (CollectInfoAction) {
+  description (Collects a name from the user and returns a welcome message.)
+  type (Search)
+
+  collect {
+
+      input (_JOVO_PREV_RESPONSE_) {
+      type(CustomResponse)
+      min (Required)
+      max (One)
+      validate {
+        if(!exists(_JOVO_PREV_RESPONSE_)) {
+          replan {
+            intent {
+              goal:  LaunchAction
+            }
+          }
+        }
+      }
+    }
+    
+    input (_JOVO_INPUT_dob) {
+      type(Dob)
+      min (Required)
+      max (One)
+       plan-behavior (Never) // Don't use the session value
+    }
+
+    input (_JOVO_INPUT_color) {
+      type(FavoriteColor)
+      min (Required)
+      max (One)
+       plan-behavior (Never) // Don't use the session value
+      default-init {
+        intent {
+          goal:  FavoriteColor
+          value: FavoriteColor(Blue)
+          value: FavoriteColor(Yellow)
+          value: FavoriteColor(Red)
+          value: FavoriteColor(Pink)
+          value: FavoriteColor(Purple)
+          value: FavoriteColor(Turqouise)
+        }
+        
+      }
+    }
+
+  
+  }
+  output (CustomResponse)
+}
+
